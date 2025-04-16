@@ -5,3 +5,16 @@
 body {
   @apply bg-gradient-to-br from-[#0b1622] to-[#1c2734] text-white;
 }
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: left center;
+  }
+  50% {
+    background-position: right center;
+  }
+  100% {
+    background-position: left center;
+  }
+}
+

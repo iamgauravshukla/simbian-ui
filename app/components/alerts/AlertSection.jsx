@@ -1,25 +1,11 @@
 "use client";
 
-import SectionTitle from "../common/SectionTitle";
 import AlertCard from "./Alertcard";
-import AlertSummary from "./AlertSummary";
 
-export default function AlertSection({ title, stats, summaries }) {
+export default function AlertSection({ title, initialCount, sendToFlow }) {
   return (
-    <div className="space-y-6">
-      <SectionTitle title={title} />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {stats.map((stat, idx) => (
-          <AlertCard
-            key={idx}
-            title={stat.title}
-            icon={stat.icon}
-            initialCount={stat.initialCount}
-            sendToFlow={stat.sendToFlow}
-          />
-        ))}
-      </div>
-      <AlertSummary summaries={summaries} />
+    <div className="bg-white/5 p-5 rounded-xl border border-white/10 backdrop-blur-xl">
+      <AlertCard title={title} initialCount={initialCount} sendToFlow={sendToFlow} />
     </div>
   );
 }

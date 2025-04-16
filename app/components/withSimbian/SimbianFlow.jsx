@@ -1,14 +1,13 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaArrowRight } from 'react-icons/fa';
+"use client";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const steps = [
-  'Triaged & Reported',
-  'Automated Response',
-  'Comprehensive Analysis',
-  'Accurate Detection',
-  '24/7 Coverage',
+  "Triaged & Reported",
+  "Automated Response",
+  "Comprehensive Analysis",
+  "Accurate Detection",
+  "24/7 Coverage",
 ];
 
 export default function SimbianFlow({ incomingAlert }) {
@@ -29,37 +28,28 @@ export default function SimbianFlow({ incomingAlert }) {
 
   return (
     <div className="overflow-x-auto py-6">
-      <div className="flex gap-4 items-center justify-start min-w-[800px]">
+      <div className="flex flex-col gap-4 items-start justify-center">
         {steps.map((step, idx) => (
-          <div key={idx} className="flex items-center gap-4">
-            {/* Step */}
+          <div key={idx} className="flex items-center gap-3">
             <motion.div
-              className={`px-4 py-3 min-w-[120px] text-center rounded-lg text-sm shadow-md transition-all ${
+              className={`px-4 py-2 min-w-[200px] text-center rounded-lg text-sm shadow-md transition-all ${
                 activeStep === idx
-                  ? 'bg-green-500 text-white scale-105'
-                  : 'bg-white/10 text-white'
+                  ? "bg-green-500 text-white scale-105"
+                  : "bg-white/10 text-white"
               }`}
               animate={{ scale: activeStep === idx ? 1.1 : 1 }}
-              transition={{ type: 'spring' }}
+              transition={{ type: "spring" }}
             >
               {step}
             </motion.div>
 
-            {/* Arrow */}
             {idx < steps.length - 1 && (
               <motion.div
-                className={`text-2xl ${
-                  activeStep === idx ? 'text-green-400' : 'text-white/30'
-                }`}
-                animate={{
-                  opacity: activeStep === idx ? [0.6, 1, 0.6] : 0.3,
-                }}
-                transition={{
-                  repeat: activeStep === idx ? Infinity : 0,
-                  duration: 1,
-                }}
+                className="text-2xl text-white/40"
+                animate={{ opacity: activeStep === idx ? [0.5, 1, 0.5] : 0.2 }}
+                transition={{ repeat: Infinity, duration: 1 }}
               >
-                <FaArrowRight />
+                ↓
               </motion.div>
             )}
           </div>
